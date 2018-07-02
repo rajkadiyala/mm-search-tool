@@ -67,10 +67,10 @@ function createApp() {
         res.sendFile(path.join(__dirname, '..', 'dist/index.html'));
     });
 
-    app.use((err, req, res, next) => {
+    app.use((err, req, res, next) => { /* eslint-disable-line no-unused-vars */
         console.error(err);
         console.error(err.stack);
-	  	res.status(err.status || 500).send(err.message || 'Internal server error.');
+        res.status(err.status || 500).send(err.message || 'Internal server error.');
     });
 }
 

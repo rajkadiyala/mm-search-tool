@@ -31,14 +31,6 @@ const User = db.define('user', {
 
 });
 
-module.exports = User;
-
-User.prototype.correctPassword = isCorrectPassword;
-User.generateSalt = generateSalt;
-User.encryptPassword = encryptPassword;
-User.beforeCreate(setSaltAndPassword);
-User.beforeUpdate(setSaltAndPassword);
-
 function isCorrectPassword(password) {
     return User.encryptPassword(password, this.salt()) === this.password();
 }
@@ -56,7 +48,17 @@ function encryptPassword(plainText, salt) {
 
 function setSaltAndPassword(user) {
     if (user.changed('password')) {
-        user.salt = User.generateSalt();
+		/* eslint-disable-next-line no-param-reassign */
+		user.salt = User.generateSalt();
+		/* eslint-disable-next-line no-param-reassign */
         user.password = User.encryptPassword(user.password(), user.salt());
     }
 }
+
+module.exports = User;
+
+User.prototype.correctPassword = isCorrectPassword;
+User.generateSalt = generateSalt;
+User.encryptPassword = encryptPassword;
+User.beforeCreate(setSaltAndPassword);
+User.beforeUpdate(setSaltAndPassword);

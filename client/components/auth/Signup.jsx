@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {AuthForm} from '../util';
+import AuthForm from '../util/AuthForm';
 import {auth} from '../../store';
 
 function mapStateToProps(state) {
