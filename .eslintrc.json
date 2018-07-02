@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "extends": ["airbnb"],
+  "rules": {
+	"semi": ["error", "always"],
+	"indent": ["error", 4],
+	"object-curly-spacing": ["error", "never"]
+  }
+}
