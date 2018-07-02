@@ -1,8 +1,6 @@
 const {describe, after} = require('mocha');
 
 const app = require('../');
-
-const sequelizeStore = app.sequelizeStore;
 const db = require('../db');
 
 describe('Backend tests', () => {
@@ -11,6 +9,6 @@ describe('Backend tests', () => {
 
     after('Close database connection and clean up resources', () => {
         db.close();
-        sequelizeStore.stopExpiringSessions();
+        app.sequelizeStore.stopExpiringSessions();
     });
 });
