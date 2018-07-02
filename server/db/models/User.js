@@ -48,9 +48,9 @@ function encryptPassword(plainText, salt) {
 
 function setSaltAndPassword(user) {
     if (user.changed('password')) {
-		/* eslint-disable-next-line no-param-reassign */
-		user.salt = User.generateSalt();
-		/* eslint-disable-next-line no-param-reassign */
+        /* eslint-disable-next-line no-param-reassign */
+        user.salt = User.generateSalt();
+        /* eslint-disable-next-line no-param-reassign */
         user.password = User.encryptPassword(user.password(), user.salt());
     }
 }
