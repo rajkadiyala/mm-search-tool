@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Login, Signup, UserHome} from './components';
-import {me} from './store';
+
+import {Login, Signup} from './unauthenticated';
+import {UserHome} from './authenticated';
+import {getUser} from '../store';
 
 function mapStateToProps(state) {
     return {
@@ -13,16 +15,22 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchUser: () => dispatch(me()),
+        fetchUser: () => dispatch(getUser()),
     };
 }
 
-class Routes extends Component {
+class App extends React.Component {
     componentDidMount() {
         this.props.fetchUser();
     }
 
     render() {
+        return <div>
+            {this.renderRoutes()}
+        </div>;
+    }
+
+    renderRoutes() {
         return <Switch>
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
@@ -42,9 +50,9 @@ class Routes extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-Routes.propTypes = {
+App.propTypes = {
     fetchUser: PropTypes.func.isRequired,
     isLoggedIn: PropTypes.bool.isRequired,
 };

@@ -10,10 +10,10 @@ function renderField(name, displayName, type) {
     </div>;
 }
 
-function renderError(error) {
-    if (error && error.response) {
+function renderError(errorMessage) {
+    if (errorMessage) {
         return <div>
-            {error.response.data}
+            {errorMessage}
         </div>;
     } else {
         return null;
@@ -24,14 +24,14 @@ export default function AuthForm({
     name,
     displayName,
     handleSubmit,
-    error,
+    errorMessage,
 }) {
     return <div>
         <form onSubmit={handleSubmit} name={name}>
             {renderField('email', 'Email', 'text')}
             {renderField('password', 'Password', 'password')}
             <button type='submit'>{displayName}</button>
-            {renderError(error)}
+            {renderError(errorMessage)}
         </form>
     </div>;
 }
@@ -40,9 +40,5 @@ AuthForm.propTypes = {
     name: PropTypes.string.isRequired,
     displayName: PropTypes.string.isRequired,
     handleSubmit: PropTypes.func.isRequired,
-    error: PropTypes.shape({
-        response: {
-            data: PropTypes.string.isRequired,
-        },
-    }).isRequired,
+    errorMessage: PropTypes.string,
 };

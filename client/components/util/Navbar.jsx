@@ -1,28 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {logout} from '../store';
 
-function mapStateToProps(state) {
-    return {
-        isLoggedIn: !!state.user.id,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        handleLogout: () => dispatch(logout()),
-    };
-}
-
-function renderContent(isLoggedIn, handleLogout) {
+function renderContent(isLoggedIn, onLogout) {
     if (isLoggedIn) {
         return <div>
             <Link to='/home'>Home</Link>
             <button
                 type='button'
-                onClick={handleLogout}
+                onClick={onLogout}
             >
                 Logout
             </button>
@@ -35,18 +21,18 @@ function renderContent(isLoggedIn, handleLogout) {
     }
 }
 
-function Navbar({handleLogout, isLoggedIn}) {
+function Navbar({onLogout, isLoggedIn}) {
     return <div>
         <h1>MIRACLE MESSAGES</h1>
         <nav>
-            {renderContent(isLoggedIn, handleLogout)}
+            {renderContent(isLoggedIn, onLogout)}
         </nav>
     </div>;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;
 
 Navbar.propTypes = {
-    handleLogout: PropTypes.func.isRequired,
+    onLogout: PropTypes.func.isRequired,
     isLoggedIn: PropTypes.bool.isRequired,
 };

@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 
-import AuthForm from '../util/AuthForm';
-import {auth} from '../../store';
+import {AuthForm} from '../util';
+import {login} from '../../store';
 
 function mapStateToProps(state) {
     return {
-        name: 'login',
-        displayName: 'Login',
-        error: state.user.error,
+        name: 'signup',
+        displayName: 'Sign Up',
+        errorMessage: state.user.errorMessage,
     };
 }
 
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch) {
             event.preventDefault();
             const email = event.target.email.value;
             const password = event.target.password.value;
-            dispatch(auth(email, password, 'login'));
+            dispatch(login(email, password, 'signup'));
         },
     };
 }

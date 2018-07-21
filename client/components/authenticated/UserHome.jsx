@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {Component} from 'react';
 import Select from 'react-select';
 import axios from 'axios';

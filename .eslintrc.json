@@ -14,7 +14,8 @@
 		"curly": ["error", "all"],
 		"object-curly-spacing": ["error", "never"],
 		"array-bracket-spacing": ["error", "never"],
-		"func-style": ["error", "declaration"],
+        "func-style": ["error", "declaration"],
+        "arrow-parens": ["error", "as-needed"],
 		"quotes": ["error", "single"],
 		"jsx-quotes": ["error", "prefer-single"],
 		"react/jsx-indent": ["error", 4],
@@ -31,6 +32,7 @@
 		"react/jsx-wrap-multilines": "off",
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-closing-tag-location": "off",
+		"react/require-default-props": "off",
 		"no-else-return": "off",
 		"no-console": "off",
 		"global-require": "off"
