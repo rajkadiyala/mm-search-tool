@@ -25,12 +25,12 @@ class UserHome extends Component {
   }
 
   async fetchClients() {
-    const response = await axios.get('/api/search');
+    const response = await axios.get('/api/neighbors');
     this.setState({clients: response.data});
   }
 
   async fetchOneClient(id) {
-    const response = await axios.get(`/api/search/${id}`);
+    const response = await axios.get(`/api/neighbors/${id}`);
     this.setState({client: response.data});
   }
 

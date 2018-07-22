@@ -15,18 +15,12 @@ module.exports = {
             if (user.correctPassword(password)) {
                 return user;
             } else {
-                throw new ClientFacingError(
-                    401,
-                    'Incorrect username and/or password',
-                    `Incorrect password entered for user: ${email}`,
-                );
+                ClientFacingError.log('Incorrect password entered for user: ', email);
+                throw new ClientFacingError(401, 'Incorrect username and/or password');
             }
         } else {
-            throw new ClientFacingError(
-                401,
-                'Incorrect username and/or password',
-                `No user found with email: ${email}`,
-            );
+            ClientFacingError.log('No user found with email: ', email);
+            throw new ClientFacingError(401, 'Incorrect username and/or password');
         }
     },
 
@@ -37,7 +31,7 @@ module.exports = {
             if (isSequelizeUniqueConstraintError(e)) {
                 throw new ClientFacingError(401, 'User already exists');
             } else {
-                throw ClientFacingError.getNewThrowable(e);
+                throw ClientFacingError.get('Unable to signup user', e);
             }
         }
     },

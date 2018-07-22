@@ -6,7 +6,7 @@ export const GET_USER__ACTIONTYPES = getAsyncActionTypes('GET_USER');
 export const LOGOUT__ACTIONTYPES = getAsyncActionTypes('LOGOUT');
 
 export function getUser() {
-    return getAsyncAction(GET_USER__ACTIONTYPES, async () => userApi.getUser());
+    return getAsyncAction(GET_USER__ACTIONTYPES, userApi.getUser);
 }
 
 export function login(email, password, method) {

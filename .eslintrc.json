@@ -35,6 +35,7 @@
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-closing-tag-location": "off",
         "react/require-default-props": "off",
+        "arrow-body-style": "off",
         "no-else-return": "off",
         "no-console": "off",
         "global-require": "off"
