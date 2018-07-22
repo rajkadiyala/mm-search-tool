@@ -1,24 +1,31 @@
 class ClientFacingError extends Error {
 
-    static getNewThrowable(error) {
-        console.log('*****RE-THROWING ERROR*****');
-        console.error('ERROR MESSAGE: ', error);
-        console.error('ERROR STACK: ', error.stack); // stop gap to 'chain' error :(
-        throw new ClientFacingError(500, error.message);
+    static get(statusText, error) {
+        return new ClientFacingError(500, statusText, error);
     }
 
-    static log(logMessages) {
+    static log(...logMessages) {
         if (logMessages.length > 0) {
-            console.error(...logMessages);
+            console.error(new Date().toUTCString(), ...logMessages);
         }
     }
 
-    constructor(status, statusText, ...logMessages) {
+    constructor(status, statusText, error) {
         super(statusText);
         this.status = status;
         this.statusText = statusText;
-        ClientFacingError.log(logMessages);
+        this.originalError = error;
+        this.logError();
         Object.setPrototypeOf(this, ClientFacingError.prototype);
+    }
+
+    logError() {
+        ClientFacingError.log(
+            '*****CONSTRUCTED THROWABLE*****',
+            '**STATUS**: ', this.status,
+            '**STATUS TEXT**: ', this.statusText,
+            '**ORIGINAL ERROR**: ', this.originalError,
+        );
     }
 
 }

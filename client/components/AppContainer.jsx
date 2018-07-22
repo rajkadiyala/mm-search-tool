@@ -38,6 +38,7 @@ AppContainer.propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
     location: PropTypes.shape({
-        key: PropTypes.string.isRequired,
+        pathname: PropTypes.string.isRequired,
+        key: PropTypes.string,
     }),
 };

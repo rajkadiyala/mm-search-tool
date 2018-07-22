@@ -1,14 +1,12 @@
 const router = require('express').Router();
-const {userService} = require('../../services');
-
-module.exports = router;
+const {userService} = require('../services');
 
 router.post('/login', async (req, res, next) => {
     try {
         const user = await userService.login(req.body);
         req.login(user, e => (e ? next(e) : res.json(user)));
     } catch (e) {
-        res.status(e.status).send(e.statusText);
+        next(e);
     }
 });
 
@@ -17,7 +15,7 @@ router.post('/signup', async (req, res, next) => {
         const user = await userService.signup(req.body);
         req.login(user, e => (e ? next(e) : res.json(user)));
     } catch (e) {
-        res.status(e.status).send(e.statusText);
+        next(e);
     }
 });
 
@@ -31,4 +29,4 @@ router.get('/me', (req, res) => {
     res.json(req.user);
 });
 
-router.use('/google', require('./google'));
+module.exports = router;
