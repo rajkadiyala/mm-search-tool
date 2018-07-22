@@ -23,7 +23,9 @@ function getClientNames(req, res, next) {
     };
 
     sheets.spreadsheets.values.get(options, (err, response) => {
-        if (err) return next(err);
+        if (err) {
+            return next(err);
+        }
 
         const clients = response.data.values;
         const data = clients.map((client, i) => {
@@ -48,7 +50,9 @@ function getClientById(req, res, next) {
     };
 
     sheets.spreadsheets.values.batchGet(options, (err, response) => {
-        if (err) return next(err);
+        if (err) {
+            return next(err);
+        }
 
         const [keysRaw, valuesRaw] = response.data.valueRanges;
         const keys = keysRaw.values[0];
