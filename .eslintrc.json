@@ -8,16 +8,18 @@
 	},
 	"rules": {
 		"semi": ["error", "always"],
-		"indent": ["error", 4, {
-			"SwitchCase": 1
-		}],
+		"indent": ["error", 4, {"SwitchCase": 1}],
 		"curly": ["error", "all"],
 		"object-curly-spacing": ["error", "never"],
 		"array-bracket-spacing": ["error", "never"],
         "func-style": ["error", "declaration"],
         "arrow-parens": ["error", "as-needed"],
+        "padded-blocks": ["error", {
+            "blocks": "never",
+            "switches": "never"
+        }],
 		"quotes": ["error", "single"],
-		"jsx-quotes": ["error", "prefer-single"],
+        "jsx-quotes": ["error", "prefer-single"],
 		"react/jsx-indent": ["error", 4],
 		"react/jsx-indent-props": ["error", 4],
 		"react/sort-comp": ["error", {
