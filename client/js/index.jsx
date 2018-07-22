@@ -8,6 +8,8 @@ import store from './store';
 import AppContainer from './components/AppContainer';
 import App from './components/App';
 
+import '../sass/index.scss';
+
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
