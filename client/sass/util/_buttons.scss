@@ -1,0 +1,11 @@
+.button {
+    background-color: $mm-black;
+    border-color: $mm-black;
+    color: $mm-white;
+
+    &:hover,
+    &:focus {
+        @extend .button;
+        border-color: $mm-blue;
+    }
+}

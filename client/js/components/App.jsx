@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {Login, Signup} from './unauthenticated';
+import Login from './Login';
+import Signup from './Signup';
 import {UserHome} from './authenticated';
 import {getUser} from '../store';
 
@@ -25,7 +26,7 @@ class App extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className='app'>
             {this.renderRoutes()}
         </div>;
     }
