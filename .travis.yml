@@ -22,6 +22,7 @@ before_script:
   - psql -c 'create database "mm-test";' -U postgres
 script:
   - npm run lint
+  - npm run lint-sass
   - npm test
 
 # before_deploy:

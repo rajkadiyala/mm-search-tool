@@ -10,81 +10,94 @@ label {
     display: block;
 }
 
-nav a {
-    display: inline-block;
-    margin: 1em;
+nav {
+    a {
+        display: inline-block;
+        margin: 1em;
+    }
 }
 
-img.logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 60vw;
+img {
+    &.logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 60vw;
+    }
 }
 
-form div {
-    margin: 1em;
-    display: inline-block;
+form {
+    div {
+        display: inline-block;
+        margin: 1em;
+    }
+}
+
+.Select-control {
+    border: 1px solid transparent;
+    min-width: 200px;
+    padding: 0 20px;
 }
 
 .home-select {
     text-align: center;
+
+    input {
+        background-image: url('/assets/search.png');
+        background-position-x: right;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: 1px solid #d3d3d3;
+        border-radius: 15px;
+        font-size: 1em;
+        margin: 10px 0 15px;
+        min-height: 30px;
+        min-width: 200px;
+        outline: none;
+        padding: 5px 20px;
+    }
 }
 
-.Select-control {
-    min-width: 200px;
-    padding: 0 20px;
-    border: 1px solid transparent;
-}
-
-.home-select input {
-    min-width: 200px;
-    min-height: 30px;
-    margin: 10px 0 15px 0;
-    padding: 5px 20px;
-    font-size: 1em;
-    outline: none;
-    border: 1px solid lightgrey;
-    border-radius: 15px;
-    background-image: url('/assets/search.png');
-    background-position-x: right;
-    background-position-y: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-input img {
-    float: right;
+input {
+    img {
+        float: right;
+    }
 }
 
 .Select-clear-zone {
+    font-size: 25px;
     position: relative;
     right: 1%;
-    vertical-align: -webkit-baseline-middle;
-    font-size: 25px;
+    vertical-align: middle;
 }
 
 .home-option {
     font-size: 1em;
     margin-bottom: 15px;
-}
 
-.home-option:nth-of-type(1) {
-    margin-top: 10px;
+    &:nth-of-type(1) {
+        margin-top: 10px;
+    }
 }
 
 table {
-    width: 100%;
+    overflow: hidden;
     table-layout: fixed;
     text-align: left;
-    overflow: hidden;
+    width: 100%;
 }
 
-td, th{
-    border-top: 1px solid #ECF0F1;
-    word-wrap: break-word;
+td,
+th {
+    border-top: 1px solid #ecf0f1;
     padding: 10px;
+    word-wrap: break-word;
 }
 
-tr:nth-of-type(even) td{
-    background-color: #DAF4F2;
+tr {
+    &:nth-of-type(even) {
+        td {
+            background-color: #daf4f2;
+        }
+    }
 }
