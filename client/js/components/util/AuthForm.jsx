@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from './Button';
+
 function renderField(name, displayName, type) {
-    return <div>
-        <label htmlFor={name}>
-            <small>{displayName}</small>
+    return <div className='field'>
+        {/* eslint-disable-next-line jsx-a11y/label-has-for */}
+        <label className='label' htmlFor={name}>
+            {displayName}
         </label>
-        <input name={name} type={type} />
+        <input
+            className='input'
+            placeholder={displayName}
+            name={name}
+            type={type}
+        />
     </div>;
 }
 
@@ -23,14 +31,15 @@ function renderError(errorMessage) {
 export default function AuthForm({
     name,
     displayName,
-    handleSubmit,
+    onSubmit,
     errorMessage,
+    className,
 }) {
-    return <div>
-        <form onSubmit={handleSubmit} name={name}>
+    return <div className={className}>
+        <form onSubmit={onSubmit} name={name}>
             {renderField('email', 'Email', 'text')}
             {renderField('password', 'Password', 'password')}
-            <button type='submit'>{displayName}</button>
+            <Button text={displayName} type='submit' />
             {renderError(errorMessage)}
         </form>
     </div>;
@@ -39,6 +48,7 @@ export default function AuthForm({
 AuthForm.propTypes = {
     name: PropTypes.string.isRequired,
     displayName: PropTypes.string.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     errorMessage: PropTypes.string,
+    className: PropTypes.string,
 };

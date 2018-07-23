@@ -1,33 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+
+import Button from './Button';
 
 function renderContent(isLoggedIn, onLogout) {
     if (isLoggedIn) {
-        return <div>
-            <Link to='/home'>Home</Link>
-            <button
-                type='button'
-                onClick={onLogout}
-            >
-                Logout
-            </button>
-        </div>;
+        return <Button
+            text='Logout'
+            onClick={onLogout}
+        />;
     } else {
-        return <div>
-            <Link to='/login'>Login</Link>
-            <Link to='/signup'>Sign Up</Link>
-        </div>;
+        return null;
     }
 }
 
-function Navbar({onLogout, isLoggedIn}) {
-    return <div>
-        <h1>MIRACLE MESSAGES</h1>
-        <nav>
+function renderLogo() {
+    return <NavLink to='/home' className='navbar-item'>
+        <img src='/assets/logo.png' alt='Miracle Messages' />
+    </NavLink>;
+}
+
+function Navbar({isLoggedIn, onLogout}) {
+    return <nav className='navbar has-shadow is-spaced'>
+        <div className='navbar-brand'>
+            {renderLogo()}
             {renderContent(isLoggedIn, onLogout)}
-        </nav>
-    </div>;
+        </div>
+        <div className='navbar-end'>
+            <div className='navbar-item'>
+                Volunteer Search Tool
+            </div>
+        </div>
+    </nav>;
 }
 
 export default Navbar;

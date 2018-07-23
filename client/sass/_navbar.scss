@@ -1,0 +1,8 @@
+.navbar {
+    &-item:first-child {
+        img {
+            height: 2.5rem;
+            max-height: none;
+        }
+    }
+}
