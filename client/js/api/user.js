@@ -6,11 +6,11 @@ export default {
         return get('/api/auth/me');
     },
 
-    authenticate(request, method) {
+    login(request, method) {
         return post(`api/auth/${method}`, request);
     },
 
-    endSession() {
+    logout() {
         post('/api/auth/logout');
     },
 

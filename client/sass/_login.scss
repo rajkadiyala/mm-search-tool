@@ -1,4 +1,13 @@
 .login {
     margin: auto;
-    max-width: 25rem;
+	max-width: 25rem;
+	
+	.navigation {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&-error {
+		color: $mm-red;
+	}
 }

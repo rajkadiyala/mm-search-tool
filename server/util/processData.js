@@ -20,7 +20,7 @@ function getDisplayDataIndices(titleRow) {
 function getDataAtIndices(dataRow, indices) {
     return indices.map((dataIndex, i) => {
         return {
-            key: NEIGHBORS_DATA__READABLE_URI_MAP[i].displayName,
+            field: NEIGHBORS_DATA__READABLE_URI_MAP[i].displayName,
             value: dataRow[dataIndex],
         };
     });

@@ -3,24 +3,25 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 
-function renderField(name, displayName, type) {
+function renderField(name, displayName, errorMessage) {
+    const inputClassName = errorMessage ? 'input is-danger' : 'input';
     return <div className='field'>
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label className='label' htmlFor={name}>
             {displayName}
         </label>
         <input
-            className='input'
+            className={inputClassName}
             placeholder={displayName}
             name={name}
-            type={type}
+            type={name}
         />
     </div>;
 }
 
 function renderError(errorMessage) {
     if (errorMessage) {
-        return <div>
+        return <div className='login-error'>
             {errorMessage}
         </div>;
     } else {
@@ -37,10 +38,12 @@ export default function AuthForm({
 }) {
     return <div className={className}>
         <form onSubmit={onSubmit} name={name}>
-            {renderField('email', 'Email', 'text')}
-            {renderField('password', 'Password', 'password')}
-            <Button text={displayName} type='submit' />
-            {renderError(errorMessage)}
+            {renderField('email', 'Email', errorMessage)}
+            {renderField('password', 'Password', errorMessage)}
+            <div className='navigation'>
+                <Button text={displayName} type='submit' />
+                {renderError(errorMessage)}
+            </div>
         </form>
     </div>;
 }

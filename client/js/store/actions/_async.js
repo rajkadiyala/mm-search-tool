@@ -1,5 +1,3 @@
-import {flashError} from './errors';
-
 export function getAsyncActionTypes(name) {
     return {
         REQUEST: `${name}__REQUEST`,
@@ -34,9 +32,7 @@ let requestIdCounter = 0;
 export function getAsyncAction(actionTypes, fn) {
     return (dispatch, getState) => {
         const requestId = ++requestIdCounter; // eslint-disable-line no-plusplus
-        if (actionTypes.REQUEST) {
-            dispatch(asyncRequest(actionTypes, requestId));
-        }
+        dispatch(asyncRequest(actionTypes, requestId));
         return fn(getState)
             .then(data => {
                 dispatch(asyncSuccess(actionTypes, requestId, data));
@@ -44,7 +40,6 @@ export function getAsyncAction(actionTypes, fn) {
             }).catch(error => {
                 console.error(error);
                 dispatch(asyncFailure(actionTypes, requestId, error.message));
-                dispatch(flashError(error.message));
                 throw error;
             });
     };
