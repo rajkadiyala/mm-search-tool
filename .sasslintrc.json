@@ -3,6 +3,7 @@
         "include": "client/sass/**/*.scss"
     },
     "rules": {
-        "indentation": [2, {"size": 4}]
+        "indentation": [2, {"size": 4}],
+        "placeholder-in-extend": 0
     }
 }

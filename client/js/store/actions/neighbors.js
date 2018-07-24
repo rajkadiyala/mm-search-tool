@@ -1,4 +1,3 @@
-// import history from '../../history';
 import {neighborsApi} from '../../api';
 import {getAsyncActionTypes, getAsyncAction} from './_async';
 
@@ -11,6 +10,6 @@ export function getNeighbors() {
 
 export function getNeighbor(id) {
     return getAsyncAction(GET_NEIGHBOR__ACTIONTYPES, async () => {
-		return neighborsApi.getNeighbor(id);
+        return neighborsApi.getNeighbor(id);
     });
 }

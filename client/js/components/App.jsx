@@ -34,7 +34,7 @@ class App extends React.Component {
 
     renderRoutes() {
         return <Switch>
-			<Route path="/neighbors" component={Neighbors} />
+            <Route path='/neighbors' component={Neighbors} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             {this.renderLoggedInRoutes()}

@@ -7,10 +7,10 @@ const INITIAL_STATE = {
 
 export default function neighbors(state = INITIAL_STATE, action) {
     switch (action.type) {
-		case GET_NEIGHBORS__ACTIONTYPES.SUCCESS:
-			return {...state, neighbors: action.asyncSuccessData.data};
-		case GET_NEIGHBOR__ACTIONTYPES.SUCCESS:
-			return {...state, selectedNeighbor: action.asyncSuccessData.data};
+        case GET_NEIGHBORS__ACTIONTYPES.SUCCESS:
+            return {...state, neighbors: action.asyncSuccessData.data};
+        case GET_NEIGHBOR__ACTIONTYPES.SUCCESS:
+            return {...state, selectedNeighbor: action.asyncSuccessData.data};
         default:
             return state;
     }
