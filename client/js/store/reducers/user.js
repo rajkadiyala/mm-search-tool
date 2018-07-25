@@ -1,7 +1,4 @@
-import {
-    GET_USER__ACTIONTYPES,
-    LOGOUT__ACTIONTYPES,
-} from '../actions/user';
+import {GET_USER__ACTIONTYPES, LOGOUT__ACTIONTYPES} from '../actions/user';
 
 const INITIAL_STATE = {};
 

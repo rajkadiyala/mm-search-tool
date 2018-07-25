@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Login from './Login';
 import Signup from './Signup';
+import Neighbors from './neighbors';
 import {UserHome} from './authenticated';
 import {getUser} from '../store';
 
@@ -33,6 +34,7 @@ class App extends React.Component {
 
     renderRoutes() {
         return <Switch>
+            <Route path='/neighbors' component={Neighbors} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             {this.renderLoggedInRoutes()}

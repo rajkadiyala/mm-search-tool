@@ -2,6 +2,7 @@ const {google} = require('googleapis');
 const {promisify} = require('util');
 
 const ClientFacingError = require('../util/ClientFacingError');
+const {processRow, processRows} = require('../util/processData');
 
 function setServiceAuth() {
     return google.sheets({
@@ -28,14 +29,14 @@ async function getData(fn, options) {
     return (await promisify(fn).call(googleSheets, options)).data;
 }
 
-function getAllNeighborsNames() {
+function getNeighborsData() {
     return getData(googleSheets.spreadsheets.values.get, {
         spreadsheetId: SPREADSHEET_ID,
-        range: 'Cases!A3:A',
+        range: 'Cases!A1:AO',
     });
 }
 
-function getSingleNeighborRow(id) {
+function getSingleNeighborData(id) {
     const row = parseIntRadix10(id) + HEADER_ROWS_OFFSET;
     return getData(googleSheets.spreadsheets.values.batchGet, {
         spreadsheetId: SPREADSHEET_ID,
@@ -43,29 +44,12 @@ function getSingleNeighborRow(id) {
     });
 }
 
-function isColdCaseColumn(columnName) {
-    return columnName.startsWith('Case Managers_if you mark');
-}
-
-function getFormattedNeighborData([columnNamesRaw, valuesRaw]) {
-    const COLD_CASE_READABLE_URI = 'Cold Case';
-    const columnNames = columnNamesRaw.values[0];
-    const values = valuesRaw.values[0];
-    return columnNames.reduce((accum, columnName, i) => {
-        return isColdCaseColumn(columnName)
-            ? {...accum, [COLD_CASE_READABLE_URI]: values[i]}
-            : {...accum, [columnName]: values[i]};
-    }, {});
-}
-
 module.exports = {
 
     async getNeighbors() {
         try {
-            const dataValues = (await getAllNeighborsNames()).values;
-            return dataValues.map(([name], i) => {
-                return {name, id: parseIntRadix10(i) + 1};
-            });
+            const dataValues = (await getNeighborsData()).values;
+            return processRows(...dataValues);
         } catch (e) {
             throw ClientFacingError.get('Failed to get neighbors data', e);
         }
@@ -73,8 +57,11 @@ module.exports = {
 
     async getNeighborById(id) {
         try {
-            const dataValues = (await getSingleNeighborRow(id)).valueRanges;
-            return getFormattedNeighborData(dataValues);
+            const [
+                {values: [titleRowValues]},
+                {values: [dataRowValues]},
+            ] = (await getSingleNeighborData(id)).valueRanges;
+            return processRow(titleRowValues, dataRowValues);
         } catch (e) {
             throw ClientFacingError.get('Failed to load neighbor data', e);
         }

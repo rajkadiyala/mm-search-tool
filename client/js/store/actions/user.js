@@ -11,7 +11,7 @@ export function getUser() {
 
 export function login(email, password, method) {
     return getAsyncAction(GET_USER__ACTIONTYPES, async () => {
-        const user = await userApi.authenticate({email, password}, method);
+        const user = await userApi.login({email, password}, method);
         history.push('/home');
         return user;
     });
@@ -19,7 +19,7 @@ export function login(email, password, method) {
 
 export function logout() {
     return getAsyncAction(LOGOUT__ACTIONTYPES, async () => {
-        await userApi.endSession();
+        await userApi.logout();
         history.push('/login');
         return {};
     });

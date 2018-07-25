@@ -1,8 +1,11 @@
+@import '~font-awesome/css/font-awesome.css';
 @import '~bulma/bulma';
+
 @import 'variables';
 @import 'util/buttons';
 @import 'navbar';
 @import 'login';
+@import 'neighbors/search';
 
 body {
     margin: 0;
