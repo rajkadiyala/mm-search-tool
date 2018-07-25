@@ -7,7 +7,7 @@ export default {
     },
 
     login(request, method) {
-        return post(`api/auth/${method}`, request);
+        return post(`/api/auth/${method}`, request);
     },
 
     logout() {

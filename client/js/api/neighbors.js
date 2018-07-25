@@ -7,7 +7,7 @@ export default {
     },
 
     getNeighbor(id) {
-        return get(`api/neighbors/${id}`);
+        return get(`/api/neighbors/${id}`);
     },
 
 };
