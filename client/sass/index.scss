@@ -6,6 +6,7 @@
 @import 'navbar';
 @import 'login';
 @import 'neighbors/search';
+@import 'neighbors/table';
 
 body {
     margin: 0;
@@ -60,12 +61,6 @@ img {
     }
 }
 
-input {
-    img {
-        float: right;
-    }
-}
-
 .Select-clear-zone {
     font-size: 25px;
     position: relative;
@@ -79,27 +74,5 @@ input {
 
     &:nth-of-type(1) {
         margin-top: 10px;
-    }
-}
-
-table {
-    overflow: hidden;
-    table-layout: fixed;
-    text-align: left;
-    width: 100%;
-}
-
-td,
-th {
-    border-top: 1px solid #ecf0f1;
-    padding: 10px;
-    word-wrap: break-word;
-}
-
-tr {
-    &:nth-of-type(even) {
-        td {
-            background-color: #daf4f2;
-        }
     }
 }
