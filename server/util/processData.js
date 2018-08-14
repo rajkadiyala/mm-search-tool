@@ -42,15 +42,20 @@ function sortByName(row1, row2) {
     }
 }
 
-function processRow(titleRow, dataRow) {
+function provideId(data, id) {
+    return {...data, id};
+}
+
+function processRow(titleRow, dataRow, id) {
     const displayDataIndices = getDisplayDataIndices(titleRow);
-    return getDataAtIndices(dataRow, displayDataIndices);
+    return provideId(getDataAtIndices(dataRow, displayDataIndices), id);
 }
 
 function processRows(titleRow, metaDataRow, ...dataRows) {
     const displayDataIndices = getDisplayDataIndices(titleRow);
-    return dataRows.map(dataRow => getDataAtIndices(dataRow, displayDataIndices))
-        .sort(sortByName);
+    return dataRows.map((dataRow, i) => {
+        return provideId(getDataAtIndices(dataRow, displayDataIndices), i + 1);
+    }).sort(sortByName);
 }
 
 module.exports = {processRow, processRows};
