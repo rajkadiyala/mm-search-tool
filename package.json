@@ -10,7 +10,7 @@
   "scripts": {
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
-    "deploy": "script/deploy",
+    "deploy": "scripts/deploy",
     "lint": "eslint ./ --ext .jsx --ext .js --ignore-path .gitignore",
     "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -c .sasslintrc.json -q -v",
     "lint-fix": "npm run lint --fix",
