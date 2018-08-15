@@ -5,6 +5,11 @@ const ClientFacingError = require('../util/ClientFacingError');
 const {processRow, processRows} = require('../util/processData');
 
 function setServiceAuth() {
+    console.log('env', process.env);
+    console.log('env spreadsheet id', process.env.GOOGLESHEETS__SPREADSHEET_ID);
+    console.log('env client email', process.env.GOOGLESHEETS__CLIENT_EMAIL);
+    console.log('env api key', process.env.GOOGLESHEETS__API_KEY);
+    console.log('env endpoint', process.env.GOOGLESHEETS__ENDPOINT);
     return google.sheets({
         version: 'v4',
         auth: new google.auth.JWT(
