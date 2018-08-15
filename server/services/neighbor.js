@@ -35,6 +35,12 @@ async function getData(fn, options) {
 }
 
 function getNeighborsData() {
+    console.log('env', process.env);
+    console.log('env spreadsheet id', process.env.GOOGLESHEETS__SPREADSHEET_ID);
+    console.log('env client email', process.env.GOOGLESHEETS__CLIENT_EMAIL);
+    console.log('env api key', process.env.GOOGLESHEETS__API_KEY);
+    console.log('env endpoint', process.env.GOOGLESHEETS__ENDPOINT);
+    console.log('googleSheets', googleSheets);
     return getData(googleSheets.spreadsheets.values.get, {
         spreadsheetId: SPREADSHEET_ID,
         range: 'Cases!A1:AO',
