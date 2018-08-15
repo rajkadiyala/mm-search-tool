@@ -61,7 +61,7 @@ module.exports = {
                 {values: [titleRowValues]},
                 {values: [dataRowValues]},
             ] = (await getSingleNeighborData(id)).valueRanges;
-            return processRow(titleRowValues, dataRowValues);
+            return processRow(titleRowValues, dataRowValues, id);
         } catch (e) {
             throw ClientFacingError.get('Failed to load neighbor data', e);
         }

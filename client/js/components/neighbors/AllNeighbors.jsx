@@ -61,7 +61,10 @@ class Neighbors extends React.Component {
         return <div className='search'>
             <div className='search-bar-container'>
                 {this.renderLink(VIEW_ALL_CASES_WORKFLOW)}
-                <SearchBar value={this.state.searchInput} onChange={this.handleSearch} />
+                <SearchBar
+                    value={this.state.searchInput}
+                    onChange={this.handleSearch}
+                />
             </div>
             <SearchResults neighbors={this.getNeighbors()} />
         </div>;

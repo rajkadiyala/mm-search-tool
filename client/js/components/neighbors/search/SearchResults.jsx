@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as uris from '../uris';
@@ -33,10 +34,14 @@ function renderIcon(uri) {
     }
 }
 
-// TO DO: fix href
 function renderSearchResultHeader(neighbor) {
     return <div className='search-result-header'>
-        <a className='is-size-5' href='/login'>{neighbor[uris.NEIGHBOR_NAME_URI]}</a>
+        <NavLink
+            className='is-size-5'
+            to={`/neighbors/${neighbor.id}`}
+        >
+            {neighbor[uris.NEIGHBOR_NAME_URI]}
+        </NavLink>
         <div>
             {renderIcon(uris.DATE_RECORDED_URI)}
             <span> Recorded {getOptional(neighbor[uris.DATE_RECORDED_URI])}</span>
@@ -53,7 +58,7 @@ function renderSearchResultItem(uri, neighbor) {
 }
 
 function renderSearchResult(neighbor) {
-    return <div className='search-result'>
+    return <div className='search-result' key={neighbor.id}>
         {renderSearchResultHeader(neighbor)}
         <div className='columns'>
             {renderSearchResultItem(uris.NEIGHBOR_CURRENT_CITY_URI, neighbor)}
