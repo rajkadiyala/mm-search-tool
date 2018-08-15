@@ -13,7 +13,7 @@ git checkout -b deploy
 
 webpack -p
 
-git add -f dist/bundle.js dist/bundle.js.map
+git add -f dist/*
 
 git commit --allow-empty -m 'Deploying'
 
