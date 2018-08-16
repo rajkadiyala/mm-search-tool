@@ -8,7 +8,11 @@ const NEIGHBORS_DATA__READABLE_URI_MAP = [
     {columnName: 'Last Known Location (LO1)', displayName: 'LO1 Last Known Location'},
     {columnName: 'Messenger Name', displayName: 'Messenger Name'},
     {columnName: 'Messenger Email', displayName: 'Messenger Email'},
-    {columnName: 'Notes from Submission', displayName: 'Case Notes'},
+    {columnName: 'Case Notes', displayName: 'Case Notes'},
+    {columnName: 'FB Link', displayName: 'Facebook Link'},
+    {columnName: 'Link to the MM (YouTube)', displayName: 'Link to Video'},
+    {columnName: 'Delivery Status', displayName: 'Delivery Status'},
+    {columnName: 'Reunion Status', displayName: 'Reunion Status'},
 ];
 
 function getOptional(data) {

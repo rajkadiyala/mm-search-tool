@@ -8,3 +8,7 @@ export const LOVED_ONE_LAST_KNOWN_LOCATION_URI = 'LO1 Last Known Location';
 export const MESSENGER_NAME_URI = 'Messenger Name';
 export const MESSENGER_EMAIL_URI = 'Messenger Email';
 export const CASE_NOTES_URI = 'Case Notes';
+export const FACEBOOK_LINK_URI = 'Facebook Link';
+export const LINK_TO_MM_VIDEO_URI = 'Link to Video';
+export const DELIVERY_STATUS_URI = 'Delivery Status';
+export const REUNION_STATUS_URI = 'Reunion Status';
