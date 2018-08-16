@@ -20,15 +20,14 @@ function mapDispatchToProps(dispatch) {
 }
 
 function renderInfo(uri, neighbor) {
-    return <div key={uri}>
-        {uri}
-        {neighbor[uri]}
+    return <div className='neighbor-info-item' key={uri}>
+        <b>{uri}</b>: {neighbor[uri]}
     </div>;
 }
 
 function renderSearchLink() {
     return <NavLink to='/neighbors'>
-        Return to search
+        &larr; Return to search
     </NavLink>;
 }
 
@@ -44,7 +43,7 @@ class SingleNeighbor extends React.Component {
     render() {
         const {neighbor} = this.props;
         if (neighbor) {
-            return <div>
+            return <div className='single-neighbor'>
                 {renderSearchLink()}
                 {this.renderContent()}
             </div>;
@@ -78,8 +77,8 @@ class SingleNeighbor extends React.Component {
     }
 
     renderGroupedInfo(title, ...urisForGroup) {
-        return <div>
-            <h3>{title}</h3>
+        return <div className='neighbor-info-group'>
+            <h2 className='neighbor-info-group-title'>{title}</h2>
             {urisForGroup.map(u => renderInfo(u, this.props.neighbor))}
         </div>;
     }

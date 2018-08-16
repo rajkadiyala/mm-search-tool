@@ -5,6 +5,7 @@ import Button from './Button';
 
 function renderField(name, displayName, errorMessage) {
     const inputClassName = errorMessage ? 'input is-danger' : 'input';
+    const autoComplete = name === 'password' ? 'current-password' : 'on';
     return <div className='field'>
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label className='label' htmlFor={name}>
@@ -15,6 +16,7 @@ function renderField(name, displayName, errorMessage) {
             placeholder={displayName}
             name={name}
             type={name}
+            autoComplete={autoComplete}
         />
     </div>;
 }

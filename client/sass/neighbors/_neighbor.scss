@@ -1,0 +1,11 @@
+.single-neighbor {
+    .neighbor-info-group {
+        margin: 1rem 0;
+
+        &-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-decoration: underline;
+        }
+    }
+}
