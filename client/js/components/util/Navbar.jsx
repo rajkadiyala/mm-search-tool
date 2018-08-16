@@ -11,7 +11,7 @@ function renderContent(isLoggedIn, onLogout) {
             onClick={onLogout}
         />;
     } else {
-        return null;
+        return 'Volunteer Search Tool';
     }
 }
 
@@ -25,11 +25,10 @@ function Navbar({isLoggedIn, onLogout}) {
     return <nav className='navbar has-shadow is-spaced'>
         <div className='navbar-brand'>
             {renderLogo()}
-            {renderContent(isLoggedIn, onLogout)}
         </div>
         <div className='navbar-end'>
             <div className='navbar-item'>
-                Volunteer Search Tool
+                {renderContent(isLoggedIn, onLogout)}
             </div>
         </div>
     </nav>;
