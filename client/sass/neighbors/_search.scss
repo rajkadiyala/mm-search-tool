@@ -6,7 +6,7 @@
 
         .all-cases-link {
             border-bottom: 1px solid;
-        
+
             &:hover {
                 color: $mm-blue;
             }
@@ -16,12 +16,12 @@
             border: 0;
             box-shadow: 0 19px 38px transparentize($color: $mm-black, $amount: .7), 0 15px 12px transparentize($color: $mm-black, $amount: .8);
             padding-left: 5rem !important; // sass-lint:disable-line no-important
-        
+
             &:hover,
             &:focus {
                 @extend .search-bar;
             }
-        
+
             + .icon {
                 background-color: $mm-black;
                 color: $mm-white !important; // sass-lint:disable-line no-important
@@ -37,13 +37,13 @@
             margin-top: 2rem;
             max-width: 70rem;
             padding: 1rem;
-    
+
             &-header {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: .5rem;
             }
-    
+
             &:last-child {
                 margin-bottom: 3rem;
             }
