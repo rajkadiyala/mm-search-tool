@@ -35,6 +35,8 @@ const VIEW_ALL_CASES_WORKFLOW = 'VIEW_ALL_CASES';
 
 class Neighbors extends React.Component {
 
+    static SHOW_NEIGHBORS_TABLE_LINK = false;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -71,19 +73,23 @@ class Neighbors extends React.Component {
     }
 
     renderLink(workflow) {
-        const iconName = workflow === VIEW_ALL_CASES_WORKFLOW
-            ? 'list-alt' : 'clock-o';
-        const text = workflow === VIEW_ALL_CASES_WORKFLOW
-            ? 'View all cases' : 'Search for case by client name';
-        return <a
-            className='all-cases-link'
-            href='#'
-            data-workflow={workflow}
-            onClick={this.handleChangeWorkflow}
-        >
-            <i className={`fa fa-${iconName}`} />
-            <span> {text}</span>
-        </a>;
+        if (Neighbors.SHOW_NEIGHBORS_TABLE_LINK) {
+            const iconName = workflow === VIEW_ALL_CASES_WORKFLOW
+                ? 'list-alt' : 'clock-o';
+            const text = workflow === VIEW_ALL_CASES_WORKFLOW
+                ? 'View all cases' : 'Search for case by client name';
+            return <a
+                className='all-cases-link'
+                href='#'
+                data-workflow={workflow}
+                onClick={this.handleChangeWorkflow}
+            >
+                <i className={`fa fa-${iconName}`} />
+                <span> {text}</span>
+            </a>;
+        } else {
+            return null;
+        }
     }
 
     handleSearch(event) {
