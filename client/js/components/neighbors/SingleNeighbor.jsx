@@ -25,6 +25,7 @@ function isLink(uri) {
 }
 
 function renderInfo(uri, neighbor) {
+    /* eslint-disable-next-line space-infix-ops */
     const value = isLink(uri) ? <a href={neighbor[uri]}>{neighbor[uri]}</a>: neighbor[uri];
     return <div className='neighbor-info-item' key={uri}>
         <b>{uri}</b>: {value}
