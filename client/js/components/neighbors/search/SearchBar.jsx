@@ -13,6 +13,7 @@ export default function SearchBar({
             value={value}
             placeholder='Search by name'
             onChange={onChange}
+            autoComplete='off'
         />
         <span className='icon is-left'>
             <i className='fa fa-search' />
