@@ -12,7 +12,7 @@ export function getUser() {
 export function login(email, password, method) {
     return getAsyncAction(GET_USER__ACTIONTYPES, async () => {
         const user = await userApi.login({email, password}, method);
-        history.push('/home');
+        history.push('/neighbors');
         return user;
     });
 }

@@ -7,7 +7,6 @@ import Login from './Login';
 import Signup from './Signup';
 import Neighbors from './neighbors/AllNeighbors';
 import SingleNeighbor from './neighbors/SingleNeighbor';
-import {UserHome} from './authenticated';
 import {getUser} from '../store';
 
 function mapStateToProps(state) {
@@ -35,22 +34,20 @@ class App extends React.Component {
 
     renderRoutes() {
         return <Switch>
-            <Route path='/neighbors/:id' component={SingleNeighbor} />
-            <Route path='/neighbors' component={Neighbors} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             {this.renderLoggedInRoutes()}
-            <Route component={Login} />
         </Switch>;
     }
 
     renderLoggedInRoutes() {
         if (this.props.isLoggedIn) {
             return <Switch>
-                <Route path='/home' component={UserHome} />
+                <Route path='/neighbors/:id' component={SingleNeighbor} />
+                <Route path='/neighbors' component={Neighbors} />
             </Switch>;
         } else {
-            return null;
+            return <Route component={Login} />;
         }
     }
 }

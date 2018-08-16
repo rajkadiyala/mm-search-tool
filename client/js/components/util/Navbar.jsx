@@ -16,7 +16,7 @@ function renderContent(isLoggedIn, onLogout) {
 }
 
 function renderLogo() {
-    return <NavLink to='/home' className='navbar-item'>
+    return <NavLink to='/neighbors' className='navbar-item'>
         <img src='/assets/logo.png' alt='Miracle Messages' />
     </NavLink>;
 }
