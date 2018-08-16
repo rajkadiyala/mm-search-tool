@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, Switch} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Login from './Login';
@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 class App extends React.Component {
+
     componentDidMount() {
         this.props.fetchUser();
     }
@@ -33,21 +34,18 @@ class App extends React.Component {
     }
 
     renderRoutes() {
-        return <Switch>
-            <Route path='/login' component={Login} />
-            <Route path='/signup' component={Signup} />
-            {this.renderLoggedInRoutes()}
-        </Switch>;
-    }
-
-    renderLoggedInRoutes() {
         if (this.props.isLoggedIn) {
             return <Switch>
                 <Route path='/neighbors/:id' component={SingleNeighbor} />
                 <Route path='/neighbors' component={Neighbors} />
+                <Redirect to='/neighbors' />
             </Switch>;
         } else {
-            return <Route component={Login} />;
+            return <Switch>
+                <Route path='/login' component={Login} />
+                <Route path='/signup' component={Signup} />
+                <Redirect to='/login' />
+            </Switch>;
         }
     }
 }
