@@ -19,9 +19,15 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({getNeighbor}, dispatch);
 }
 
+function isLink(uri) {
+    return uri === uris.LINK_TO_MM_VIDEO_URI
+        || uri === uris.FACEBOOK_LINK_URI;
+}
+
 function renderInfo(uri, neighbor) {
+    const value = isLink(uri) ? <a href={neighbor[uri]}>{neighbor[uri]}</a>: neighbor[uri];
     return <div className='neighbor-info-item' key={uri}>
-        <b>{uri}</b>: {neighbor[uri]}
+        <b>{uri}</b>: {value}
     </div>;
 }
 
@@ -59,6 +65,7 @@ class SingleNeighbor extends React.Component {
                 uris.NEIGHBOR_NAME_URI,
                 uris.NEIGHBOR_CURRENT_CITY_URI,
                 uris.NEIGHBOR_CONTACT_INFO_URI,
+                uris.LINK_TO_MM_VIDEO_URI,
             )}
             {this.renderGroupedInfo(
                 'Loved One Information',
@@ -72,6 +79,12 @@ class SingleNeighbor extends React.Component {
                 uris.MESSENGER_NAME_URI,
                 uris.MESSENGER_EMAIL_URI,
                 uris.CASE_NOTES_URI,
+            )}
+            {this.renderGroupedInfo(
+                'Case Status',
+                uris.FACEBOOK_LINK_URI,
+                uris.DELIVERY_STATUS_URI,
+                uris.REUNION_STATUS_URI,
             )}
         </div>;
     }
