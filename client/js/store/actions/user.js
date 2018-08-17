@@ -9,9 +9,17 @@ export function getUser() {
     return getAsyncAction(GET_USER__ACTIONTYPES, userApi.getUser);
 }
 
-export function login(email, password, method) {
+export function login(email, password) {
     return getAsyncAction(GET_USER__ACTIONTYPES, async () => {
-        const user = await userApi.login({email, password}, method);
+        const user = await userApi.login({email, password});
+        history.push('/neighbors');
+        return user;
+    });
+}
+
+export function signup(email, password) {
+    return getAsyncAction(GET_USER__ACTIONTYPES, async () => {
+        const user = await userApi.signup({email, password});
         history.push('/neighbors');
         return user;
     });

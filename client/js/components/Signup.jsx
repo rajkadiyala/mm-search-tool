@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {AuthForm} from './util';
-import {login} from '../store';
+import {signup} from '../store';
 
 function mapStateToProps(state) {
     return {
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch) {
             event.preventDefault();
             const email = event.target.email.value;
             const password = event.target.password.value;
-            dispatch(login(email, password, 'signup'));
+            dispatch(signup(email, password));
         },
     };
 }
