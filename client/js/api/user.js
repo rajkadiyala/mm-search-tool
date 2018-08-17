@@ -6,8 +6,12 @@ export default {
         return get('/api/auth/me');
     },
 
-    login(request, method) {
-        return post(`/api/auth/${method}`, request);
+    login(request) {
+        return post('/api/auth/login', request);
+    },
+
+    signup(request) {
+        return post('/api/auth/signup', request);
     },
 
     logout() {
