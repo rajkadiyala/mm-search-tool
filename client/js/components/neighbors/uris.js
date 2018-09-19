@@ -5,6 +5,7 @@ export const DATE_RECORDED_URI = 'Recorded';
 export const LOVED_ONE_NAME_URI = 'LO1 Name';
 export const LOVED_ONE_APPROXIMATE_AGE_URI = 'LO1 Approximate Age';
 export const LOVED_ONE_LAST_KNOWN_LOCATION_URI = 'LO1 Last Known Location';
+export const LOVED_ONE_RELATIONSHIP = 'LO1 Relationship';
 export const MESSENGER_NAME_URI = 'Messenger Name';
 export const MESSENGER_EMAIL_URI = 'Messenger Email';
 export const CASE_NOTES_URI = 'Case Notes';
