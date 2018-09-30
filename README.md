@@ -1,5 +1,4 @@
-# Miracle Messages Volunteer Tool
-
+# Miracle Messages Search Tool
 # Running the app locally
 1. Download postgres + postico https://postgresapp.com/
 2. Install command line postgres tools https://postgresapp.com/documentation/cli-tools.html
