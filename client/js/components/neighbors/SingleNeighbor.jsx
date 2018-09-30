@@ -19,14 +19,16 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({getNeighbor}, dispatch);
 }
 
-function isLink(uri) {
-    return uri === uris.LINK_TO_MM_VIDEO_URI
-        || uri === uris.FACEBOOK_LINK_URI;
+function isLink(uri, neighbor) {
+    return (uri === uris.LINK_TO_MM_VIDEO_URI
+        || uri === uris.FACEBOOK_LINK_URI)
+        && neighbor[uri] !== '--';
 }
 
 function renderInfo(uri, neighbor) {
-    /* eslint-disable-next-line space-infix-ops */
-    const value = isLink(uri) ? <a href={neighbor[uri]}>{neighbor[uri]}</a>: neighbor[uri];
+    const value = isLink(uri, neighbor)
+        ? <a href={neighbor[uri]}>{neighbor[uri]}</a>
+        : neighbor[uri];
     return <div className='neighbor-info-item' key={uri}>
         <b>{uri}</b>: {value}
     </div>;
