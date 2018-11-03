@@ -6,6 +6,7 @@ const NEIGHBORS_DATA__READABLE_URI_MAP = [
     {columnName: 'Loved One #1 Name', displayName: 'LO1 Name'},
     {columnName: 'Approximate Age (LO1)', displayName: 'LO1 Approximate Age'},
     {columnName: 'Last Known Location (LO1)', displayName: 'LO1 Last Known Location'},
+    {columnName: 'Relationship (LO1)', displayName: 'LO1 Relationship'},
     {columnName: 'Messenger Name', displayName: 'Messenger Name'},
     {columnName: 'Messenger Email', displayName: 'Messenger Email'},
     {columnName: 'Case Notes', displayName: 'Case Notes'},
