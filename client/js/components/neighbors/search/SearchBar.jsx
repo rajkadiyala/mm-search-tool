@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// TO DO: fix href
 export default function SearchBar({
     value,
     onChange,
