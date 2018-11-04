@@ -74,8 +74,8 @@ class SingleNeighbor extends React.Component {
                 'Loved One Information',
                 uris.LOVED_ONE_NAME_URI,
                 uris.LOVED_ONE_APPROXIMATE_AGE_URI,
-				uris.LOVED_ONE_LAST_KNOWN_LOCATION_URI,
-				uris.LOVED_ONE_RELATIONSHIP,
+                uris.LOVED_ONE_LAST_KNOWN_LOCATION_URI,
+                uris.LOVED_ONE_RELATIONSHIP,
             )}
             {this.renderGroupedInfo(
                 'Messenger Information',

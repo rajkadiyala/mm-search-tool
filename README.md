@@ -5,7 +5,7 @@
 3. Start postgres server on your laptop.  If you installed everything correctly, you should see an elephant in the top bar of your mac
 4. Open up the terminal
 5. createdb mm, createdb mm-test
-6. cd mm-stack
+6. cd mm-search-tool
 7. npm i
 8. npm run start-dev
 9. Navigate to localhost:8080 in browser
