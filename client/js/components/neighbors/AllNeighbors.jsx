@@ -35,7 +35,7 @@ const VIEW_ALL_CASES_WORKFLOW = 'VIEW_ALL_CASES';
 
 class Neighbors extends React.Component {
 
-    static SHOW_NEIGHBORS_TABLE_LINK = false;
+    static SHOW_NEIGHBORS_TABLE_LINK = false; // Hide until access controls in place.
 
     constructor(props) {
         super(props);
