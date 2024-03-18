@@ -141,7 +141,7 @@ export default class NeighborsTable extends React.Component {
     shouldDisplayClickable(index) {
         return index === 0
             || index === this.state.neighbors.length - 1
-            || Math.abs(index, this.state.currentChunk) <= 1;
+            || Math.abs(index - this.state.currentChunk) <= 1;
     }
 
 }
