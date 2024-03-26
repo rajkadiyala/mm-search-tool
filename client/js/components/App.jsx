@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Login from './Login';
 import Signup from './Signup';
-import Neighbors from './neighbors/AllNeighbors';
+import AllNeighbors from './neighbors/AllNeighbors';
 import SingleNeighbor from './neighbors/SingleNeighbor';
 import {getUser} from '../store';
 
@@ -37,7 +37,7 @@ class App extends React.Component {
         if (this.props.isLoggedIn) {
             return <Switch>
                 <Route path='/neighbors/:id' component={SingleNeighbor} />
-                <Route path='/neighbors' component={Neighbors} />
+                <Route path='/neighbors' component={AllNeighbors} />
                 <Redirect to='/neighbors' />
             </Switch>;
         } else {
