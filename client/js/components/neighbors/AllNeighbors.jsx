@@ -33,7 +33,7 @@ function searchByName(neighbors, searchInput) {
 const SEARCH_WORKFLOW = 'SEARCH';
 const VIEW_ALL_CASES_WORKFLOW = 'VIEW_ALL_CASES';
 
-class Neighbors extends React.Component {
+class AllNeighbors extends React.Component {
 
     static SHOW_NEIGHBORS_TABLE_LINK = false; // Hide until access controls in place.
 
@@ -116,7 +116,7 @@ class Neighbors extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Neighbors);
+export default connect(mapStateToProps, mapDispatchToProps)(AllNeighbors);
 
 Neighbors.propTypes = {
     neighbors: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
